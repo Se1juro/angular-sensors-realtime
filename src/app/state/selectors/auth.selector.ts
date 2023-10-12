@@ -8,3 +8,8 @@ export const selectLoggedAuth = createSelector(
   selectAuthFeature,
   (state: IUserState) => state.logged
 );
+
+export const selectFullName = createSelector(
+  selectAuthFeature,
+  (state: IUserState) => state.user?.fullName
+);
