@@ -17,6 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { SensorsEffects } from './state/effects/sensors.effects';
 import { GuestUserModule } from './guest-user/guest-user.module';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { AuthEffects } from './state/effects/auth.effects';
 
 registerLocaleData(en);
 
@@ -35,7 +36,7 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     StoreModule.forRoot(STORES),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([SensorsEffects]),
+    EffectsModule.forRoot([SensorsEffects, AuthEffects]),
     GuestUserModule, // When user not logged
   ],
   providers: [

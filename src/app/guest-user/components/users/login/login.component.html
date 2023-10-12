@@ -1,1 +1,27 @@
-<p>login works!</p>
+<section class="login-form mt-5">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="inputPassword5" class="form-label">Nombre de usuario</label>
+
+    <input
+      class="form-control mb-3"
+      type="text"
+      placeholder="Escribe tu nombre de usuario"
+      aria-label="username"
+      formControlName="userName"
+    />
+    <label for="inputPassword5" class="form-label">Contraseña</label>
+    <input
+      type="password"
+      id="inputPassword5"
+      class="form-control mb-4"
+      placeholder="Escribe tu nombre de contraseña"
+      aria-describedby="passwordHelpBlock"
+      formControlName="password"
+    />
+    <input
+      type="submit"
+      value="Iniciar Sesion"
+      class="btn btn-info text-light bg-primary"
+    />
+  </form>
+</section>

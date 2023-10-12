@@ -10,8 +10,7 @@ import { EMPTY, catchError, map, switchMap } from 'rxjs';
 export class SensorsEffects {
   constructor(
     private actions$: Actions,
-    private sensorService: SensorsService,
-    private store: Store<AppState>
+    private sensorService: SensorsService
   ) {}
 
   loadSensors$ = createEffect(() =>
