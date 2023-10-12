@@ -15,8 +15,6 @@ import { STORES } from './state/stores';
 import { HttpRequestInterceptor } from './interceptors/http.interceptor';
 import { EffectsModule } from '@ngrx/effects';
 import { SensorsEffects } from './state/effects/sensors.effects';
-import { RegisterComponent } from './users/register/register.component';
-import { LoginComponent } from './users/login/login.component';
 import { GuestUserModule } from './guest-user/guest-user.module';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
@@ -27,8 +25,6 @@ registerLocaleData(en);
     AppComponent,
     HeaderComponent,
     SidebarComponent,
-    RegisterComponent,
-    LoginComponent,
     MainLayoutComponent,
   ],
   imports: [
@@ -40,7 +36,7 @@ registerLocaleData(en);
     StoreModule.forRoot(STORES),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([SensorsEffects]),
-    GuestUserModule,
+    GuestUserModule, // When user not logged
   ],
   providers: [
     {
