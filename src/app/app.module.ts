@@ -1,6 +1,5 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { registerLocaleData } from '@angular/common';
@@ -18,11 +17,20 @@ import { EffectsModule } from '@ngrx/effects';
 import { SensorsEffects } from './state/effects/sensors.effects';
 import { RegisterComponent } from './users/register/register.component';
 import { LoginComponent } from './users/login/login.component';
+import { GuestUserModule } from './guest-user/guest-user.module';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SidebarComponent, RegisterComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SidebarComponent,
+    RegisterComponent,
+    LoginComponent,
+    MainLayoutComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -32,6 +40,7 @@ registerLocaleData(en);
     StoreModule.forRoot(STORES),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([SensorsEffects]),
+    GuestUserModule,
   ],
   providers: [
     {
