@@ -1,0 +1,22 @@
+<div class="d-flex">
+  <div id="sidebar-container" class="bg-primary">
+    <div class="logo">
+      <h4 class="text-light font-weight-bold">Sensores</h4>
+    </div>
+    <div class="menu">
+      <a href="" class="d-block text-light p-3 mr-2"
+        ><i class="las la-table me-2"></i>Sensores</a
+      >
+      <p *ngIf="loading$ | async" class="text-light p-3">Cargando...</p>
+      <section *ngIf="!(loading$ | async)">
+        <a
+          href=""
+          class="d-block text-light p-3"
+          *ngFor="let sensor of sensors$ | async"
+        >
+          <i class="las la-chart-bar me-2"></i>{{ sensor.sensor_name }}</a
+        >
+      </section>
+    </div>
+  </div>
+</div>
