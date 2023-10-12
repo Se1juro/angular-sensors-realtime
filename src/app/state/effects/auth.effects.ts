@@ -29,13 +29,17 @@ export class AuthEffects {
             password: password,
           })
           .pipe(
-            map((response) => ({
-              type: AUTH_ACTION_TYPES.USER_CHECKED,
-              user: response.user,
-              token: response.token,
-              logged: true,
-              loading: false,
-            })),
+            map(({ user, token }) => {
+              localStorage.setItem('token', token);
+              this.router.navigate(['/']);
+              return {
+                type: AUTH_ACTION_TYPES.USER_CHECKED,
+                user: user,
+                token: token,
+                logged: true,
+                loading: false,
+              };
+            }),
             catchError(() => EMPTY)
           );
       })
